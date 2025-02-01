@@ -1,9 +1,11 @@
 package com.example.keycloak.model;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+
+import java.util.UUID;
 
 @Entity
 @Table(
@@ -13,10 +15,8 @@ public class EventOutbox {
 
     @Id
     @Column(
-            name = "ID",
-            length = 36
-    )
-    private String id;
+            name = "ID")
+    private Long id;
     @Column(
             name = "EVENT_TIME"
     )
@@ -26,15 +26,28 @@ public class EventOutbox {
     )
     private String type;
 
+    @Column(
+            name = "EVENT_ID"
+    )
+    private String eventId;
+
     public EventOutbox() {
     }
 
-    public String getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(Long id) {
         this.id = id;
+    }
+
+    public String getEventId() {
+        return eventId;
+    }
+
+    public void setEventId(String eventId) {
+        this.eventId = eventId;
     }
 
     public long getTime() {

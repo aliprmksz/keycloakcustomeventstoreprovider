@@ -1,3 +1,4 @@
+/*
 package com.example.keycloak;
 
 import com.example.keycloak.model.EventOutbox;
@@ -54,3 +55,4 @@ public class CustomJpaEventStoreProvider extends JpaEventStoreProvider implement
 
 
 }
+*/

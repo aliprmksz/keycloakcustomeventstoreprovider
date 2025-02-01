@@ -1,3 +1,4 @@
+/*
 package com.example.keycloak;
 
 import org.keycloak.Config;
@@ -47,3 +48,4 @@ public class CustomJpaAuthenticatorFactory extends JpaEventStoreProviderFactory 
         return "custom-jpa-event-store-provider";
     }
 }
+*/
