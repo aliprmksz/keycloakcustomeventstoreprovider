@@ -27,7 +27,7 @@ public class CustomEventStoreProvider extends JpaEventStoreProvider implements E
     public void onEvent(Event event) {
         super.onEvent(event);
         EventOutbox entity = new EventOutbox();
-        entity.setType(entity.getType());
+        entity.setType(event.getType().name());
         entity.setId(UUID.randomUUID().getMostSignificantBits() & Long.MAX_VALUE);
         entity.setEventId(event.getId() != null ? UUID.randomUUID().toString() : event.getId());
         entity.setTime(event.getTime());
