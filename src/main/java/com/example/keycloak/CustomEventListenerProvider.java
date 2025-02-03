@@ -24,12 +24,6 @@ public class CustomEventListenerProvider implements EventListenerProvider {
     @Override
     public void onEvent(Event event) {
         Set<EventStoreProvider> providers = this.keycloakSession.getAllProviders(EventStoreProvider.class);
-        log.info("providers are {}", providers);
-        providers.stream().forEach(providerx -> {
-            System.out.println(providerx);
-            log.info("provider is: " + providerx);
-            log.info(providerx.toString() + providerx.getClass().getName());
-        });
         providers.stream().filter(clazz -> clazz instanceof CustomEventStoreProvider).forEach(prv -> {
             log.info("admin provider is: " + prv);
             prv.onEvent(event);
@@ -39,12 +33,6 @@ public class CustomEventListenerProvider implements EventListenerProvider {
     @Override
     public void onEvent(AdminEvent adminEvent, boolean includeRepresentation) {
         Set<EventStoreProvider> providers = this.keycloakSession.getAllProviders(EventStoreProvider.class);
-        log.info("providers are {}", providers);
-        providers.stream().forEach(providerx -> {
-            System.out.println(providerx);
-            log.info("provider is: " + providerx);
-            log.info(providerx.toString() + providerx.getClass().getName());
-        });
         providers.stream().filter(clazz -> clazz instanceof CustomEventStoreProvider).forEach(prv -> {
             log.info("admin provider is: " + prv);
             prv.onEvent(adminEvent, includeRepresentation);
